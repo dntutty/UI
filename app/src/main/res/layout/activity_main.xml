@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.dntutty.ui.ScreenAdapterLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +7,16 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:layout_width="540px"
+        android:layout_height="960px"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/colorAccent" />
+    <TextView
+        android:layout_width="540px"
+        android:layout_height="1900px"
+        android:text=""
+        android:layout_toRightOf="@+id/text"
+        android:background="@color/colorPrimaryDark"/>
 
-</android.support.constraint.ConstraintLayout>
+</com.dntutty.ui.ScreenAdapterLayout>
