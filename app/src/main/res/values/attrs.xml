@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义属性应用,name是自定义控件的名称-->
+    <!--子项是各个属性及其对应的类型格式-->
+   <declare-styleable name="PercentLayout">
+        <attr name="widthPercent" format="float" />
+        <attr name="heightPercent" format="float" />
+        <attr name="marginLeftPercent" format="float" />
+        <attr name="marginRightPercent" format="float" />
+        <attr name="marginTopPercent" format="float" />
+        <attr name="marginBottomPercent" format="float" />
+    </declare-styleable>
+</resources>

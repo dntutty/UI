@@ -1,14 +1,14 @@
-package com.dntutty.ui;
+package com.dntutty.ui.screenadapter.pixel;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 
-
 public class Utils {
     private static Utils utils;
 
+    //这里是设计稿参考宽高
     private static final float STANDARD_WIDTH = 1080;
     private static final float STANDARD_HEIGHT = 1920;
 

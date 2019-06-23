@@ -1,4 +1,4 @@
-package com.dntutty.ui;
+package com.dntutty.ui.screenadapter.pixel;
 
 import android.content.Context;
 import android.util.AttributeSet;

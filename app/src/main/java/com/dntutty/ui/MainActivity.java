@@ -2,10 +2,9 @@ package com.dntutty.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.dntutty.ui.screenadapter.pixel.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
