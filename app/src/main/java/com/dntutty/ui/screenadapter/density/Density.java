@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 
 public class Density {
 
-    private static final float WIDTH = 360;//参考设备的宽度,单位是dp
+    private static final float WIDTH = 720;//参考设备的宽度,单位是dp
 
     private static float appDensity;//表示屏幕密度
     private static float appScaleDensity;//字体缩放比例,默认appDensity;

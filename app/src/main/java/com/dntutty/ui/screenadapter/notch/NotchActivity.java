@@ -1,4 +1,4 @@
-package com.dntutty.ui;
+package com.dntutty.ui.screenadapter.notch;
 
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +9,10 @@ import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity {
+import com.dntutty.ui.R;
+
+public class NotchActivity extends AppCompatActivity {
+
     //华为,小米,oppo
     //1,判断手机厂商
     // 2.判断手机是否有刘海,
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             int visibility = window.getDecorView().getSystemUiVisibility();
             window.getDecorView().setSystemUiVisibility(visibility | flags);
         }
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_notch);
     }
 
     private boolean hasDisplayCutout(Window window) {
