@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -61,7 +62,7 @@ public class MusicAlbumActivity extends AppCompatActivity {
     private TextView tv_music_list_name;//header中歌单名字
     private FrameLayout fl_layout_float;//真正悬浮的view包裹布局
     private LinearLayout ll_layout_float;//真正悬浮的view布局
-    private Drawable backdrawable;
+    private int toolHeight = 0;
 
     //onCreate中是获取不到控件宽高的
     @Override
@@ -122,10 +123,17 @@ public class MusicAlbumActivity extends AppCompatActivity {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+                if (toolHeight == 0) {
+                   toolHeight = toolbar.getHeight();
+                }
                 //播放全部与toolbar之前的距离  初始距离即滑动过程中需要计算的距离
-                float originHeight = headerView.getHeight() - toolbar.getHeight() - ll_play_all.getHeight();
+                float originHeight = headerView.getHeight() - toolHeight - ll_play_all.getHeight();
                 //当前滑动距离
-                float currentHeight = headerView.getBottom() - toolbar.getHeight() - ll_play_all.getHeight();
+                float currentHeight = headerView.getBottom() - toolHeight - ll_play_all.getHeight();
+
+                Log.e("originHeight", "onScroll: originHeight="+originHeight );
+                Log.e("currentHeight", "onScroll: currentHeight="+currentHeight );
                 if (originHeight == 0) {
                     return;
                 }
@@ -148,25 +156,33 @@ public class MusicAlbumActivity extends AppCompatActivity {
                     //控制悬浮按钮的显示和隐藏
                     //拖动比
                     float part = currentHeight / originHeight;
-                    ll_album_info.setAlpha(part);
-                    ll_options.setAlpha(part);
-                    ll_be_member.setAlpha(part);
+                    ll_album_info.setAlpha(1.4f * part);
+                    ll_options.setAlpha(1.4f * part);
+                    ll_be_member.setAlpha(1.4f * part);
                     ll_list_top.getBackground().setAlpha((int) (255 * part));
                     Drawable drawable = toolbar.getBackground();
                     drawable.setAlpha((int) (255 * (1 - part)));
-                    toolbar.setBackground(drawable);
-//                    fl_layout_float.setBackground(null);
-                    fl_layout_float.setVisibility(View.INVISIBLE);
+                    int paddingTop = toolbar.getPaddingTop();
+                    Log.e("paddingTop", "onScroll: " + paddingTop);
+                    toolbar.setPadding(0, paddingTop, 0, 0);
+                    fl_layout_float.setVisibility(View.GONE);
                 } else {
                     ll_album_info.setAlpha(0);
                     ll_options.setAlpha(0);
                     ll_be_member.setAlpha(0);
                     Drawable drawable = toolbar.getBackground();
-                    drawable.setAlpha(0);
-                    toolbar.setBackground(drawable);
-                    fl_layout_float.setPaddingRelative(0, toolbar.getHeight(), 0, 0);
+////                    drawable.setAlpha(1);
+                    drawable.setAlpha(255);
+                    FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) ll_layout_float.getLayoutParams();
+                    int toobarHeight = toolbar.getHeight();
+                    params.topMargin = toobarHeight;
+                    int paddingTop = toolbar.getPaddingTop();
+                    Log.e("paddingTop", "onScroll: " + paddingTop);
+                    toolbar.setPadding(0, paddingTop, 0, 0);
+                    int paddingBottom = (int) (16 * getResources().getDisplayMetrics().density + 0.5f);
+                    toolbar.setPaddingRelative(0, paddingTop, 0, paddingBottom);
                     fl_layout_float.setVisibility(View.VISIBLE);
-//                    fl_layout_float.setBackground(toolbar.getBackground());
+//                    fl_layout_float.setBackground(fl_layout_float.getBackground());
                 }
             }
         });
@@ -177,11 +193,10 @@ public class MusicAlbumActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-//                backdrawable = getForegroundDrawable(poster);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        fl_layout_float.setBackground(getForegroundDrawable(poster));
+//                        fl_layout_float.setBackground(getForegroundDrawable(poster));
                         iv_header_bg.setImageDrawable(getForegroundDrawable(poster));
                         toolbar.setBackground(getForegroundDrawable(poster));
                     }

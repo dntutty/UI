@@ -6,43 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".musicalbum.MusicAlbumActivity">
 
-    <RelativeLayout
+
+    <ListView
+        android:id="@+id/list_album"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:divider="@null"
+        android:scrollbars="none" />
 
-        <ListView
-            android:id="@+id/list_album"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorWhite"
-            android:divider="@null"
-            android:scrollbars="none" />
-        <FrameLayout
-            android:id="@+id/fl_layout_float"
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible">
-            <LinearLayout
-                android:id="@+id/ll_layout_float"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/shape_white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:text="播放全部"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-        </FrameLayout>
-
-
-    </RelativeLayout>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -55,4 +27,28 @@
         app:titleTextAppearance="@style/Theme.Toolbar.Title">
 
     </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/fl_layout_float"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/ll_layout_float"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/shape_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="播放全部"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
