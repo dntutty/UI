@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".canvas.PathMeasureActivity">
+
+        </activity>
+
         <activity android:name=".screenadapter.notch.NotchActivity" />
         <activity android:name=".screenadapter.percentlayout.PercentLayoutActivity" />
         <activity android:name=".screenadapter.pixel.ScreenAdapterActivity" />
