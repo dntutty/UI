@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".canvas.PathMeasureActivity">
 
-    <com.dntutty.ui.canvas.PathMeasureView
+    <!--<com.dntutty.ui.canvas.PathMeasureView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+    <!--<com.dntutty.ui.canvas.PathMeasureWithTouchView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+    <com.dntutty.ui.customview.MapView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

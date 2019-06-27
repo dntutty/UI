@@ -21,6 +21,9 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.dntutty.ui.R;
 
+import static android.graphics.PathMeasure.POSITION_MATRIX_FLAG;
+import static android.graphics.PathMeasure.TANGENT_MATRIX_FLAG;
+
 
 public class PathMeasureView extends View {
 
@@ -55,12 +58,13 @@ public class PathMeasureView extends View {
 
         mPath.addCircle(0, 0, 200, Path.Direction.CW);
         pathMeasure = new PathMeasure(mPath, false);
+        pathMeasure.getMatrix(0,mMatrix, POSITION_MATRIX_FLAG|TANGENT_MATRIX_FLAG);
         pathMeasure.getPosTan(0, pos, tan);
         degrees = Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI;
 
         //采样压缩
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 8;
+        options.inSampleSize = 16;
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.arrow, options);
     }
 
@@ -75,11 +79,12 @@ public class PathMeasureView extends View {
 
         canvas.drawPath(mPath, mPaint);
 
-        mMatrix.reset();
-        //以图片中心坐标为旋转中心,旋转到当前点切线的角度
-        mMatrix.postRotate((float) degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);
-        //将图片的绘制中心移动到当前点
-        mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1] - mBitmap.getHeight() / 2);
+//        mMatrix.reset();
+//        //以图片中心坐标为旋转中心,旋转到当前点切线的角度
+//        mMatrix.postRotate((float) degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);
+//        //将图片的绘制中心移动到当前点
+//        mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1] - mBitmap.getHeight() / 2);
+        mMatrix.preTranslate(-mBitmap.getWidth() / 2, -mBitmap.getHeight() / 2);
         canvas.drawBitmap(mBitmap, mMatrix, mPaint);
 
     }
@@ -95,14 +100,16 @@ public class PathMeasureView extends View {
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
-                    pathMeasure.setPath(mPath, false);
-                    pathMeasure.getPosTan((Float) animation.getAnimatedValue(), pos, tan);
-                    Log.e("TAG", "onDraw: pos[0]=" + pos[0] + ";pos[1]=" + pos[1]);
-                    Log.e("TAG", "onDraw: tan[0]=" + tan[0] + ";tan[1]=" + tan[1]);
-
-                    //计算当前点的切线方向与x轴的夹角的度数
-                    degrees = Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI;
-                    Log.e("TAG", "onDraw: degrees=" + degrees);
+//                    pathMeasure.setPath(mPath, false);
+//                    pathMeasure.getPosTan((Float) animation.getAnimatedValue(), pos, tan);
+//                    Log.e("TAG", "onDraw: pos[0]=" + pos[0] + ";pos[1]=" + pos[1]);
+//                    Log.e("TAG", "onDraw: tan[0]=" + tan[0] + ";tan[1]=" + tan[1]);
+//
+//                    //计算当前点的切线方向与x轴的夹角的度数
+//                    degrees = Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI;
+//                    Log.e("TAG", "onDraw: degrees=" + degrees);
+                    mMatrix.reset();
+                    pathMeasure.getMatrix((Float) animation.getAnimatedValue(), mMatrix, PathMeasure.POSITION_MATRIX_FLAG | PathMeasure.TANGENT_MATRIX_FLAG);
                     invalidate();
 
                 }
