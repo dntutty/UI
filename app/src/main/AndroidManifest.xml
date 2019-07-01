@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.dntutty.ui">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".UiApplication"
@@ -10,23 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".musicalbum.MusicAlbumActivity">
-
-        </activity>
-
-        <activity android:name=".canvas.PathMeasureActivity">
+        <activity android:name=".materialdesign.MovieDitailActivity"></activity>
+        <activity android:name=".materialdesign.BottomNavigationViewActivity" />
+        <activity android:name=".materialdesign.MDMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".customview.VLayoutActivity" />
+        <activity android:name=".materialdesign.ToolbarActivity" />
+        <activity android:name=".musicalbum.MusicAlbumActivity" />
+        <activity android:name=".canvas.PathMeasureActivity" />
         <activity android:name=".screenadapter.notch.NotchActivity" />
         <activity android:name=".screenadapter.percentlayout.PercentLayoutActivity" />
         <activity android:name=".screenadapter.pixel.ScreenAdapterActivity" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

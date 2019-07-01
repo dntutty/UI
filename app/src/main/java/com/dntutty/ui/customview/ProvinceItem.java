@@ -3,6 +3,8 @@ package com.dntutty.ui.customview;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
+import android.graphics.Region;
 
 public class ProvinceItem {
     private Path path;
@@ -26,12 +28,12 @@ public class ProvinceItem {
             mPaint.clearShadowLayer();
             mPaint.setStrokeWidth(1);
             mPaint.setStyle(Paint.Style.FILL);
-            mPaint.setColor(drawColor);
+            mPaint.setColor(0xFF8909AC);
             canvas.drawPath(path,mPaint);
 
             //绘制边界
             mPaint.setStyle(Paint.Style.STROKE);
-            int strokeColor = 0xFFD0E8F4;
+            int strokeColor = 0xFFFFFFFF;
             mPaint.setColor(strokeColor);
             canvas.drawPath(path,mPaint);
         } else {
@@ -48,5 +50,13 @@ public class ProvinceItem {
             mPaint.setColor(strokeColor);
             canvas.drawPath(path,mPaint);
         }
+    }
+
+    public boolean isTouch(float x, float y) {
+        RectF rectF = new RectF();
+        Region region = new Region();
+        path.computeBounds(rectF,true);
+        region.setPath(path,new Region((int)rectF.left,(int)rectF.top,(int)rectF.right,(int)rectF.bottom));
+        return region.contains((int)x,(int)y);
     }
 }
