@@ -32,7 +32,11 @@
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
+                <!--CollapsingToolbarLayout的直接子布局可以使用的属性:layoutcollapseMode(模式)-->
+                <!--1.pin:在滑动过程中,此子布局会固定在它所在的位置不动,直到CollapsingToolbarLayout全部折叠或者全部展开
+                    2.parallax:视差效果,在滑动过程中,不管上滑还是下滑都会有视差效果(layout_collapseParallaxMulitplier视差银子 0~1之间取值
+                    当设置了parallax时可以配合这个属性使用,调节自己想要的视差效果)
+                    3.不设置,跟随NestedScrollView的滑动一起滑动,NestedScrollView滑动多少距离它就会跟着走多少距离-->
                 <ImageView
                     android:id="@+id/iv_movie_icon"
                     android:layout_width="match_parent"

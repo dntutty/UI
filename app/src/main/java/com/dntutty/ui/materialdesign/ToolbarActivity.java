@@ -145,10 +145,10 @@ public class ToolbarActivity extends AppCompatActivity {
                         ToolbarActivity.this,view.findViewById(R.id.iv_icon),
                         "basic"
                 );
-//                Intent intent = new Intent(ToolbarActivity.this,MovieDetailActivity.class);
-//                intent.putExtra("URL",movie.get(position).getImages().getMedium());
-//                intent.putExtra("NAME",movie.get(position).getTitle());
-//                startActivity(intent,optionsCompat.toBundle());
+                Intent intent = new Intent(ToolbarActivity.this,MovieDitailActivity.class);
+                intent.putExtra("URL",movie.get(position).getImages().getMedium());
+                intent.putExtra("NAME",movie.get(position).getTitle());
+                startActivity(intent,optionsCompat.toBundle());
             }
         });
     }
