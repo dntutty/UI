@@ -1,4 +1,4 @@
-package com.dntutty.ui.materialdesign;
+package com.dntutty.ui.materialdesign.adapter;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

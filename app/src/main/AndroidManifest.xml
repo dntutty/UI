@@ -12,16 +12,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".materialdesign.MovieDitailActivity"></activity>
-        <activity android:name=".materialdesign.BottomNavigationViewActivity" />
-        <activity android:name=".materialdesign.MDMainActivity">
+        android:theme="@style/AppTheme.Immersive">
+        <activity android:name=".customview.minerecyclerview.MineRecyclerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".materialdesign.immersive.ImmersiveActivity">
+
+        </activity>
+        <activity android:name=".materialdesign.customrecyclerview.RecyclerViewActivity"></activity>
+        <activity android:name=".materialdesign.VipActivity" />
+        <activity android:name=".materialdesign.MovieDitailActivity" />
+        <activity android:name=".materialdesign.BottomNavigationViewActivity" />
+        <activity android:name=".materialdesign.MDMainActivity" />
         <activity android:name=".customview.VLayoutActivity" />
         <activity android:name=".materialdesign.ToolbarActivity" />
         <activity android:name=".musicalbum.MusicAlbumActivity" />

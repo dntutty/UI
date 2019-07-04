@@ -73,8 +73,8 @@ public class MDMainActivity extends AppCompatActivity implements NavigationView.
             startActivity(new Intent(MDMainActivity.this,ToolbarActivity.class));
         } else if (id == R.id.nav_vip) {
             // 过渡动画
-//            Intent intent = new Intent(this,VipActivity.class);
-//            startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
+            Intent intent = new Intent(this,VipActivity.class);
+            startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
         } else if (id == R.id.nav_bottom_navigation) {
             startActivity(new Intent(MDMainActivity.this,BottomNavigationViewActivity.class));
         }

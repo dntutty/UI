@@ -1,4 +1,4 @@
-package com.dntutty.ui.customview;
+package com.dntutty.ui.customview.svgview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

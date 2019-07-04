@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".materialdesign.immersive.ImmersiveActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:background="@drawable/ic_vip_header_bg"
+        android:contentDescription="@null" />
+
+
+    <!--app:cardBackgroundColor="@color/colorPrimary" 设置cardView背景色(使用android的background属性添加背景是不起作用的)-->
+    <!--app:cardPreventCornerOverlap="false" 取消lollipop以下版本的padding(早期的cardView不会裁剪内容元素满足圆角需求,所以通过padding添加圆角防止内容元素覆盖在圆角之上实现)-->
+    <!--app:cardUseCompatPadding="true" 为lollipop及其以上版本增加一个阴影padding内边距-->
+    <!--app:cardCornerRadius="8dp" 设置cardView圆角效果-->
+    <!--app:cardElevation="10dp" 设置cardView Z轴阴影大小-->
+    <!--app:cardMaxElevation="6dp" 设置cardView Z 轴最大阴影-->
+    <!--app:contentPadding="10dp" 设置内容内边距(setPadding()方法为空方法,所以要添加padding,要通过contentPadding添加)-->
+    <!--下面两个属性配合使用,在5.0以下有按压的效果,在5.0以上有水波纹的特效
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"-->
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+
+        app:cardCornerRadius="10dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="cardview" />
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

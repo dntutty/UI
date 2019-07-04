@@ -22,8 +22,8 @@
                 NestedScrollView出父布局(一般为CooordinatorLayout)时,会折叠到顶端,
                 向下滚动时NestedScrollView必须滚动到最上面的时候才能拉出该布局
                 2.scroll|enterAlways:只要向下滚动该布局就会显示出来,只要向上滑动出来该布局就会向上收缩
-                3.scroll|enterAlwaysCollapsed:向下滚动NestedScrollView到最底端时该布局才会显示出来
-                4.scroll|snap:表示滚动时有一个吸附效果,可以确保childView 不会滑动停止在中间的状态
+                3.scroll|enterAlwaysCollapsed:向下滚动NestedScrollView到最底端时该布局才会显示出来,无折叠
+                4.scroll|snap:表示滚动时有一个吸附效果,可以确保childView 不会滑动停止在中间的状态,无折叠状态
                 如果不设置该属性,则该布局不能滑动-->
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapse_toolbar"
@@ -44,7 +44,9 @@
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic"
-                    android:transitionName="basic" />
+                    android:transitionName="basic"
+                    app:layout_collapseParallaxMultiplier="0.4"
+                    app:layout_collapseMode="parallax"/>
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"

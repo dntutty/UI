@@ -75,4 +75,16 @@
         <item name="android:radius">20dp</item>
         <item name="overlapAnchor">false</item>
     </style>
+    <!--沉浸式状态栏-->
+    <style name="AppTheme.Immersive" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--5.0以下4.4以上的沉浸式状态栏的实现-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
 </resources>

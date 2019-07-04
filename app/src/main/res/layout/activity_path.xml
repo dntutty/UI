@@ -12,7 +12,7 @@
     <!--<com.dntutty.ui.canvas.PathMeasureWithTouchView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
-    <com.dntutty.ui.customview.MapView
+    <com.dntutty.ui.customview.svgview.MapView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
